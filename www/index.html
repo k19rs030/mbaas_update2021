@@ -118,8 +118,10 @@
           $("#display").addClass("bg-primary");
           $("#display").html("update first data");
       })
-      .catch(function(results){
-        console.log("error");
+      .catch(function(error){
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("update fail:" + JSON.stringify(error));
       })
     }
   </script>
