@@ -89,7 +89,19 @@
     }
 
     function updateData() {
-      $("#display").html("update does not work");
+      $("#display").html("update first data");
+      let value = parseInt($("#update").val());
+      UTdata.fetch()
+      .then(function(results){
+        results.set(key,value);
+        return results.update();
+      })
+      .then(function(results){
+        console.log("success");
+      })
+      .catch(function(results){
+        console.log("error");
+      })
     }
   </script>
 </head>
