@@ -52,7 +52,7 @@
 
     function sortData() {
       $("#display").html("sort does not work");
-      UTdata.order("score",true).fetchAll()
+      UTdata.order(key,true).fetchAll()
         .then(function(results) {
           let msg = "";
           for (let i = 0; i < results.length; i++) {
@@ -75,7 +75,17 @@
     }
 
     function deleteData() {
-      $("#display").html("delete does not work");
+      UTdata.fetch()
+      .then(function(results){
+        $("#display").html("Deleted first data");
+        return results.delete();
+      })
+      .then(function(results){
+        console.log("success");
+      })
+      .catch(function(results){
+        console.log("error");
+      })
     }
 
     function updateData() {
