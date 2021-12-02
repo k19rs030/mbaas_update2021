@@ -98,7 +98,7 @@
           $("#display").addClass("bg-primary");
           $("#display").html("success");
       })
-      .catch(function(results){
+      .catch(function(error){
           $("#display").removeClass();
           $("#display").addClass("bg-warning");
           $("#display").html("delete fail:" + JSON.stringify(error));
@@ -106,7 +106,6 @@
     }
 
     function updateData() {
-      $("#display").html("update first data");
       let value = parseInt($("#update").val());
       UTdata.fetch()
       .then(function(results){
@@ -114,7 +113,10 @@
         return results.update();
       })
       .then(function(results){
-        console.log("success");
+          $("#display").removeClass();
+          $("#display").addClass("text-light");
+          $("#display").addClass("bg-primary");
+          $("#display").html("update first data");
       })
       .catch(function(results){
         console.log("error");
