@@ -90,14 +90,18 @@
     function deleteData() {
       UTdata.fetch()
       .then(function(results){
-        $("#display").html("Deleted first data");
         return results.delete();
       })
       .then(function(results){
-        console.log("success");
+          $("#display").removeClass();
+          $("#display").addClass("text-light");
+          $("#display").addClass("bg-primary");
+          $("#display").html("success");
       })
       .catch(function(results){
-        console.log("error");
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("delete fail:" + JSON.stringify(error));
       })
     }
 
