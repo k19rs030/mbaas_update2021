@@ -72,6 +72,19 @@
 
     function countData() {
       $("#display").html("count does not work");
+      UTdata.count().fetchAll()
+        .then(function(results) {
+          let msg =results.count;
+          $("#display").removeClass();
+          $("#display").addClass("text-light");
+          $("#display").addClass("bg-primary");
+          $("#display").html("データの個数:"+msg);
+        })
+        .catch(function(error) {
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("delete fail:" + JSON.stringify(error));
+        })
     }
 
     function deleteData() {
