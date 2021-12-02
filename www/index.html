@@ -51,7 +51,7 @@
     }
 
     function sortData() {
-      $("#display").html("sort does not work");
+      // $("#display").html("sort does not work");
       UTdata.order(key,true).fetchAll()
         .then(function(results) {
           let msg = "";
@@ -71,7 +71,7 @@
     }
 
     function countData() {
-      $("#display").html("count does not work");
+      // $("#display").html("count does not work");
       UTdata.count().fetchAll()
         .then(function(results) {
           let msg =results.count;
@@ -83,7 +83,7 @@
         .catch(function(error) {
           $("#display").removeClass();
           $("#display").addClass("bg-warning");
-          $("#display").html("delete fail:" + JSON.stringify(error));
+          $("#display").html("count fail:" + JSON.stringify(error));
         })
     }
 
@@ -116,7 +116,7 @@
           $("#display").removeClass();
           $("#display").addClass("text-light");
           $("#display").addClass("bg-primary");
-          $("#display").html("update first data");
+          $("#display").html("update first data "+results.get(key));
       })
       .catch(function(error){
           $("#display").removeClass();
